@@ -5,11 +5,12 @@ from django.db import models
 # model for proposal objects
 class Proposal(models.Model):
     # model field for the customer's name, should never be blank, max length of 60
-    customer_name = models.CharField(blank=False, max_length=60)
-    technician_name = models.CharField(blank=False, max_length=60)
-    address = models.CharField(blank=False, max_length=120)
-    city_state_zip = models.CharField(blank=False, max_length=120)
-    phone_number = models.CharField(blank=False, max_length=20)
+    name = models.CharField(blank=False, max_length=60)
+    customer_name = models.CharField(blank=True, max_length=60)
+    technician_name = models.CharField(blank=True, max_length=60)
+    address = models.CharField(blank=True, max_length=120)
+    city_state_zip = models.CharField(blank=True, max_length=120)
+    phone_number = models.CharField(blank=True, max_length=20)
     logo = models.ImageField(blank=True,max_length=100)
     terms_and_conditions = models.TextField(blank=True)
     technician_notes = models.TextField(blank=True)
@@ -24,7 +25,7 @@ class Proposal(models.Model):
 # model for proposal category objects
 class ProposalLineCategory(models.Model):
     # model field for the customer's name, should never be blank, max length of 60
-    name = models.CharField(blank=False, max_length=60)
+    name = models.CharField(blank=False, max_length=60, unique=True)
 
     class Meta:
         verbose_name_plural = "Proposal Line Categories"
@@ -77,7 +78,7 @@ class ProposalLine(models.Model):
 
     # this is how an object will print its name (as a string)
     def __str__(self):
-            return "Proposal {}: Line {}".format(self.proposal, self.pk)
+            return "Category: {}".format(self.proposal_item.category)
     # this is how an object will represent itself (as a string)
     def __repr__(self):
             return "Proposal {}: Line {}".format(self.proposal, self.pk)
