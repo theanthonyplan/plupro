@@ -9,13 +9,16 @@ import {
   decrementAsync
 } from '../../modules/counter'
 
+import { Button } from 'semantic-ui-react'
+
+
 const Home = props => (
   <div>
     <h1>Home</h1>
     <p>Count: {props.count}</p>
 
     <p>
-      <button onClick={props.increment}>Increment</button>
+      <Button class="ui button" onClick={props.increment}>Increment</Button>
       <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
         Increment Async
       </button>
