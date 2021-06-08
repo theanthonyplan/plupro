@@ -18,17 +18,17 @@ const Home = props => (
     <p>Count: {props.count}</p>
 
     <p>
-      <Button class="ui button" onClick={props.increment}>Increment</Button>
-      <button onClick={props.incrementAsync} disabled={props.isIncrementing}>
+      <Button className="ui button" onClick={props.increment}>Increment</Button>
+      <Button color='teal' onClick={props.incrementAsync} disabled={props.isIncrementing}>
         Increment Async
-      </button>
+      </Button>
     </p>
 
     <p>
-      <button onClick={props.decrement}>Decrement</button>
-      <button onClick={props.decrementAsync} disabled={props.isDecrementing}>
+      <Button inverted color='orange' onClick={props.decrement}>Decrement</Button>
+      <Button inverted color='purple' onClick={props.decrementAsync} disabled={props.isDecrementing}>
         Decrement Async
-      </button>
+      </Button>
     </p>
 
     <p>
