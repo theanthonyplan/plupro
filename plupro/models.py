@@ -16,10 +16,10 @@ class Proposal(models.Model):
     technician_notes = models.TextField(blank=True)
     # this is how an object's name will be formatted
     def __str__(self):
-            return self.customer_name
+            return self.name
     # this is how an object will represent itself (as a string)
     def __repr__(self):
-            return str("Proposal for " + self.customer_name)
+            return str("Proposal for " + self.name)
 
 
 # model for proposal category objects
