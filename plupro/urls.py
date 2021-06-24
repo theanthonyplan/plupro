@@ -17,11 +17,25 @@ import debug_toolbar
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+
+from .views import UserViewSet, ProposalViewSet
 
 urlpatterns = [
     # path('', admin.site.urls),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
 ]
+
+# DRF stuff
+# Create a router and register our viewsets with it.
+router = DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'proposals', ProposalViewSet)
+urlpatterns += [
+    path('', include(router.urls)),
+]
+
 
 # url routing for django-debug-toolbar
 urlpatterns += [

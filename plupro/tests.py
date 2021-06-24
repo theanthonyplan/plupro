@@ -12,7 +12,6 @@ class ProposalTest(TestCase):
             name='Jasper', phone_number="423-241-1772", customer_name='Classy Platypus', terms_and_conditions='Stuff to follow..')
 
 
-
     def test_proposal_name(self):
         proposal_casper = Proposal.objects.get(name='Casper')
         proposal_muffin = Proposal.objects.get(name='Jasper')
