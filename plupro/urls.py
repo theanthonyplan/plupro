@@ -19,7 +19,9 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from .views import UserViewSet, ProposalViewSet
+from accounts.views import UserViewSet
+from proposals.views import ProposalViewSet
+
 
 urlpatterns = [
     # path('', admin.site.urls),
@@ -32,6 +34,7 @@ urlpatterns = [
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'proposals', ProposalViewSet)
+
 urlpatterns += [
     path('', include(router.urls)),
 ]

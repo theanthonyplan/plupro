@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'rest_framework',
     'plupro',
+    'accounts',
+    'products',
+    'proposals'
 ]
 
 MIDDLEWARE = [
