@@ -22,8 +22,6 @@ from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
 
 from accounts.views import UserViewSet
-from proposals.views import ProposalViewSet
-from products.views import TagViewSet
 
 schema_view = get_swagger_view(title='PluPro API')
 
@@ -36,13 +34,15 @@ urlpatterns = [
 
 # DRF stuff
 # Create a router and register our viewsets with it.
+
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'proposals', ProposalViewSet)
-router.register(r'tags', TagViewSet)
+
+# router.register(r'tags', TagViewSet)
 
 urlpatterns += [
-    path('', include(router.urls)),
+    path("", include(router.urls)),
+    url(r"^api/", include("products.api.urls", namespace="product-api")),
 ]
 
 

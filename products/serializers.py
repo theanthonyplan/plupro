@@ -4,10 +4,9 @@ from django.contrib.auth.models import User
 
 from taggit_serializer.serializers import TagListSerializerField, TaggitSerializer
 from taggit.models import Tag
+from .models import Product
 
-class TagSerializer(TaggitSerializer, serializers.ModelSerializer):
-
-    # tags = TagListSerializerField()
-    class Meta:
-        model = Tag
-        fields = '__all__'
+# class ProductSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Product
+#         fields = '__all__'
