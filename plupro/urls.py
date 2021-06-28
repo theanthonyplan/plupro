@@ -36,14 +36,16 @@ urlpatterns = [
 # Create a router and register our viewsets with it.
 
 router = DefaultRouter()
-router.register(r'users', UserViewSet)
-
+# maybe route an endpoint index here?
+# router.register(r'users', UserViewSet)
 # router.register(r'tags', TagViewSet)
+# router.register('docs', schema_view)
 
 urlpatterns += [
-    path("", include(router.urls)),
+    # path("", include(router.urls)),
     url(r"^api/", include("products.api.urls", namespace="product-api")),
     url(r"^api/", include("proposals.api.urls", namespace="proposal-api")),
+    url(r"^api/", include("accounts.api.urls", namespace="account-api")),
 ]
 
 

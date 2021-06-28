@@ -6,13 +6,14 @@ from products.models import Product
 class Proposal(models.Model):
     # model field for the customer's name, should never be blank, max length of 60
     name = models.CharField(blank=False, max_length=60)
+    is_published = models.BooleanField(blank=False, default=False)
+    phone_number = models.CharField(blank=True, max_length=20)
     customer_name = models.CharField(blank=True, max_length=60)
     technician_name = models.CharField(blank=True, max_length=60)
     address = models.CharField(blank=True, max_length=120)
     city = models.CharField(blank=True, max_length=40)
     state = models.CharField(blank=True, max_length=40)
     zip = models.CharField(blank=True, max_length=7)
-    phone_number = models.CharField(blank=True, max_length=20)
     logo = models.ImageField(blank=True,max_length=100)
     terms_and_conditions = models.TextField(blank=True)
     technician_notes = models.TextField(blank=True)
@@ -24,17 +25,17 @@ class Proposal(models.Model):
             return str("Proposal for " + self.name)
 
 # model for proposal category objects
-class ProposalLineCategory(models.Model):
-    # model field for the customer's name, should never be blank, max length of 60
-    name = models.CharField(blank=False, max_length=60, unique=True)
-
-    class Meta:
-        verbose_name_plural = "Proposal Line Categories"
-    def __str__(self):
-            return self.name
-    # this is how an object will represent itself (as a string)
-    def __repr__(self):
-            return str("Category: " + self.name)
+# class ProposalLineCategory(models.Model):
+#     # model field for the customer's name, should never be blank, max length of 60
+#     name = models.CharField(blank=False, max_length=60, unique=True)
+#
+#     class Meta:
+#         verbose_name_plural = "Proposal Line Categories"
+#     def __str__(self):
+#             return self.name
+#     # this is how an object will represent itself (as a string)
+#     def __repr__(self):
+#             return str("Category: " + self.name)
 
 # model for proposal line objects
 class ProposalLine(models.Model):

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'taggit',
     'taggit_serializer',
+    # 'taggit_helpers',
     'plupro',
     'accounts',
     'products',

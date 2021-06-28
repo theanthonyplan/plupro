@@ -1,6 +1,6 @@
 from django.contrib import admin
 # Register your models here.
-from .models import Proposal, ProposalLine, ProposalLineCategory
+from .models import Proposal, ProposalLine
 from products.models import Product
 from products.admin import ProductAdmin, ProductTabularInline
 
@@ -22,9 +22,9 @@ class ProposalAdmin(admin.ModelAdmin):
     inlines = [ProposalLineTabularInline]
     model = Proposal
 
-class ProposalLineCategoryAdmin(admin.ModelAdmin):
-    pass
+# class ProposalLineCategoryAdmin(admin.ModelAdmin):
+#     pass
 
 admin.site.register(Proposal, ProposalAdmin)
 admin.site.register(ProposalLine, ProposalLineAdmin)
-admin.site.register(ProposalLineCategory, ProposalLineCategoryAdmin)
+# admin.site.register(ProposalLineCategory, ProposalLineCategoryAdmin)
