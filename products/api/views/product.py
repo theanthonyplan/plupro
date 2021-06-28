@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from rest_framework import generics, viewsets
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
+from ..auth import CsrfExemptSessionAuthentication
 # Create your views here.
 # from ..models import Product
 from ... import models
@@ -7,9 +9,13 @@ from ..serializers.product import ProductSerializer
 # from .api.serializers.product import ProductSerializer
 
 
-class ProductViewSet(viewsets.ReadOnlyModelViewSet):
+class ProductViewSet(viewsets.ModelViewSet):
     """
     This viewset automatically provides `list` and `retrieve` actions.
     """
-    queryset = models.Product.objects.all()
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (CsrfExemptSessionAuthentication,)
     serializer_class = ProductSerializer
+    queryset = models.Product.objects.all()
+
+    # consider adding custom logic for retagging products

@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Proposal, ProposalLine, ProposalLineCategory
+from .models import Proposal, ProposalLine
 
 
 class ProposalTest(TestCase):
