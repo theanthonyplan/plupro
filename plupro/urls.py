@@ -43,6 +43,7 @@ router.register(r'users', UserViewSet)
 urlpatterns += [
     path("", include(router.urls)),
     url(r"^api/", include("products.api.urls", namespace="product-api")),
+    url(r"^api/", include("proposals.api.urls", namespace="proposal-api")),
 ]
 
 
