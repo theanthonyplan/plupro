@@ -9,8 +9,6 @@ from taggit.models import Tag
 
 
 class TagSerializer(TaggitSerializer, serializers.ModelSerializer):
-
-    # tags = TagListSerializerField()
     class Meta:
         model = Tag
         fields = '__all__'
