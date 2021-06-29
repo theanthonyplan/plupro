@@ -18,7 +18,7 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     queryset = models.Product.objects.all()
     filter_backends = [filters.SearchFilter]        # enable search filtering
-    search_fields = ['name', 'tags__name']                # fiels to use in lookup
+    search_fields = ['name', 'description', 'tags__name']                # fiels to use in lookup
 
 
     # consider adding custom logic for retagging products
