@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics, viewsets
+from rest_framework import generics, viewsets, filters
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from ..auth import CsrfExemptSessionAuthentication
 # Create your views here.
@@ -16,3 +16,5 @@ class TagViewSet(viewsets.ModelViewSet):
     authentication_classes = (CsrfExemptSessionAuthentication,)
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
+    filter_backends = [filters.SearchFilter]        # enable search filtering
+    search_fields = ['name', 'slug']                # fiels to use in lookup
