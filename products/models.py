@@ -9,7 +9,7 @@ class Product(models.Model):
     ]
 
     # model field for the customer's name, should never be blank, max length of 60
-    name = models.CharField(blank=False, max_length=60)
+    name = models.CharField(unique=True, blank=False, max_length=60)
     price = models.FloatField(blank=False, default=1.0)
     um = models.CharField(blank=False, choices=UM_CHOICES, default='EA', max_length=2)
     tags = TaggableManager()
