@@ -1,0 +1,8 @@
+export const LOGGED_IN = 'LOGGED_IN';
+
+
+/* modal types */
+// export const QUESTIONAIRE_MODAL = 'QUESTIONAIRE_MODAL';
+// export const CREATE_EDIT_QUESTION_MODAL = 'CREATE_EDIT_QUESTION_MODAL';
+// export const ADD_CHOICE_MODAL = 'ADD_CHOICE_MODAL';
+// export const ADD_QUESTION_MODAL = 'ADD_QUESTION_MODAL';

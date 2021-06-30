@@ -22,6 +22,7 @@ from django.conf.urls import url
 from rest_framework_swagger.views import get_swagger_view
 
 from accounts.views import UserViewSet
+from plupro import views as app_views
 
 schema_view = get_swagger_view(title='PluPro API')
 
@@ -29,7 +30,7 @@ urlpatterns = [
     # path('', admin.site.urls),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    url(r'^docs', schema_view)
+    url(r'^docs', schema_view),
 ]
 
 # DRF stuff
